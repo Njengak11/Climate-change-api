@@ -9,15 +9,18 @@ const app = express()
 const newspapers = [
     {
         name:'The Times',
-        address:'https://www.thetimes.co.uk/environment/climate-change'
+        address:'https://www.thetimes.co.uk/environment/climate-change',
+        base:''
     },
     {
         name:'The Guardian',
-        address:'https://www.theguardian.com/environment/climate-crisis'
+        address:'https://www.theguardian.com/environment/climate-crisis',
+        base:''
     },
     {
         name:'BBC',
-        address:'https://www.bbc.com/news/science-environment-56837908'
+        address:'https://www.bbc.com/news/science-environment-56837908',
+        base:'https://www.bbc.com'
     },
 ]
 
@@ -35,7 +38,7 @@ newspapers.forEach(newspaper => {
 
             articles.push({
                 title,
-                url,
+                url:newspaper.base + url,
                 source:newspaper.name
             })
          })
